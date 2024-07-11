@@ -1,7 +1,7 @@
 import re
 from docx import Document
 from config import REGEX_TAG
-from tools.utilities import create_input_path, create_output_path, clear_string
+from tools.utilities import create_input_path, create_output_path, clear_string, make_set
 
 
 def remove_empty_paragraphs(doc):
@@ -102,4 +102,4 @@ def get_all_tags(template_path):
                 for paragraph in cell.paragraphs:
                     tags.update(re.findall(REGEX_TAG, paragraph.text))
 
-    return list(tags)
+    return tags

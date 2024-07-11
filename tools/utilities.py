@@ -19,4 +19,14 @@ def clear_string(text: str):
     text = re.sub(r' {2}', ' ', text)
     # Для мест, где надо вписать последние 2 цифры года, уберем лишние пробелы
     text = re.sub(r'20 (\d{2,})', r'20\1', text)
+    text = text.replace(' , ', ', ').replace(' . ', '. ')
     return text
+
+
+def make_set(tags: list):
+    print(tags)
+    for i in range(len(tags)):
+        if tags.count(tags[i]) > 1:
+            tags[i] = -1
+    return [i for i in tags if i != -1]
+

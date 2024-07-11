@@ -1,7 +1,7 @@
 import re
 from openpyxl import load_workbook
 from config import REGEX_TAG
-from tools.utilities import create_input_path, create_output_path, clear_string
+from tools.utilities import create_input_path, create_output_path, clear_string, make_set
 
 
 def open_workbook(template_path: str):
@@ -71,4 +71,4 @@ def get_all_tags_xlsx(template_path):
                 if cell.value and isinstance(cell.value, str):
                     tags.update(re.findall(REGEX_TAG, cell.value))
 
-    return list(tags)
+    return tags
